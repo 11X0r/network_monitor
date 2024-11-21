@@ -1,0 +1,53 @@
+[window]
+duration = 0.5  # minutes
+target_tests = 15
+max_tests = 500
+min_tests = 5
+
+[network]
+target_server = "8.8.8.8"
+
+[network.packets]
+default = 10
+min = 2
+max = 50
+step = 2
+
+[network.interval]
+default = 1.0  # ms
+min = 0.5
+max = 2.0
+adjustment_factor = 0.2
+
+[scoring.limits]
+max_latency = 100.0  # ms
+max_jitter = 20.0    # ms
+
+[scoring.weights]
+latency = 0.7
+jitter = 0.3
+
+[quality_scale]
+excellent = 10.0
+good = 20.0
+fair = 40.0
+poor = 60.0
+
+[thresholds]
+[thresholds.latency]
+critical = 200.0  # ms
+
+[thresholds.jitter]
+critical = 50.0   # ms
+
+[thresholds.quality]
+excellent = 10.0
+poor = 60.0
+
+[thresholds.stability]
+min_samples = 5
+latency_variance = 15.0
+jitter_variance = 5.0
+
+[window.adaptation]
+stability_threshold = 0.7
